@@ -1,0 +1,10 @@
+@import '../../styles/animations.scss';
+
+#second-hand{
+  position: absolute;
+  background-color: rgb(203, 6, 0);
+  height: 150px;
+  width: 3px;
+  // transform-origin: center bottom;
+  @include tick(60s)
+}

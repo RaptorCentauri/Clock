@@ -1,0 +1,14 @@
+$breakpoints: (
+  phone: '(max-width: 599px)',
+  tablet-portrait: '(min-width: 600px)',
+  tablet-landscape: '(min-width: 900px)',
+  desktop: '(min-width: 1200px)',
+  desktop-large: '(min-width: 1800px)',
+);
+
+
+@mixin breakpoint($breakpoint){
+  @media #{map-get($breakpoints, $breakpoint)}{
+      @content
+    }
+}

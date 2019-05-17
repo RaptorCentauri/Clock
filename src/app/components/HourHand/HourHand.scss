@@ -1,0 +1,14 @@
+@import '../../styles/animations.scss';
+
+
+#hour-hand{
+  -webkit-transform: scaleY(0.5);
+  // position: absolute;
+
+  background-color: rgb(42, 186, 0);
+  height: 50%;
+  width: 3px;
+  @include tick(43200s)
+
+  // transform-origin: center bottom;
+}
