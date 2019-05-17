@@ -5,6 +5,6 @@
 
 #minute-hand{
   background-color: rgb(10, 12, 241);
-  @include tick(3600s);
+  @include tick('minute');
   @include handSize('minute');
 }
