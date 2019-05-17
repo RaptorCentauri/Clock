@@ -1,0 +1,13 @@
+@mixin handSize($hand){
+  $handMap:(
+    second: 45%,
+    minute: 35%,
+    hour: 25%,
+  );
+
+  $handSize: map-get($handMap, $hand);
+  position: absolute;
+  height: $handSize;
+  width: 3px;
+  top: 50%-$handSize;
+}
