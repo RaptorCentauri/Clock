@@ -1,12 +1,10 @@
 @import '../../styles/animations.scss';
+@import '../../styles/handSize.scss';
+
 
 
 #minute-hand{
-  position: absolute;
-
   background-color: rgb(10, 12, 241);
-  height: 150px;
-  width: 3px;
-  @include tick(3600s)
-  // transform-origin: center bottom;
+  @include tick(3600s);
+  @include handSize('minute');
 }

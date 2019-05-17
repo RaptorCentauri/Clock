@@ -1,10 +1,25 @@
 @import '../../styles/animations.scss';
+@import '../../styles/handSize.scss';
+
+
+
+// @mixin handSize($size){
+//   $map:(
+//     second: 45,
+//     minute: 35,
+//     hour: 25,
+//   );
+//
+//   $val: map-get($map, $size);
+//   position: absolute;
+//   $unit: 1%;
+//   height: $val*$unit;
+//   top: (50-$val)*$unit;
+// }
 
 #second-hand{
-  position: absolute;
   background-color: rgb(203, 6, 0);
-  height: 150px;
   width: 3px;
-  // transform-origin: center bottom;
-  @include tick(60s)
+  @include tick(60s);
+  @include handSize('second');
 }
