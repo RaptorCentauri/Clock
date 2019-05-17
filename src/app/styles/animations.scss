@@ -1,4 +1,15 @@
-@mixin tick($time){
+@import './globals.scss';
+
+@mixin tick($hand){
+  $tickMap:(
+    second: 60s,
+    minute: 3600s,
+    hour: 43200s,
+  );
+
+  $time: map-get($tickMap, $hand)/$clockSpeed;
+
+
   transform-origin: center bottom;
   animation: rotate  $time infinite linear;
 }
