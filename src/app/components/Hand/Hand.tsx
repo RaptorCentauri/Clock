@@ -5,8 +5,12 @@ const Hand = (props) =>{
 
 React.useEffect(()=>{console.log(`${props.handStyle} Effect`)});
 
+const rotateStyle = {
+  transform: `rotate(${props.rotate}deg)`
+};
+
 return(
-  <handRing>
+  <handRing style={rotateStyle}>
     <hand id={props.handStyle}></hand>
   </handRing>
 )

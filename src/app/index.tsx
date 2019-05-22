@@ -7,9 +7,9 @@ import {Hand} from './components'
 const App = () => {
   return(
     <clockFace>
-      <Hand handStyle="second-hand"/>
+      <Hand handStyle="second-hand" rotate="90"/>
       <Hand handStyle="minute-hand"/>
-      <Hand handStyle="hour-hand"/>
+      <Hand handStyle="hour-hand" rotate="170"/>
     </clockFace>
   )
 }
