@@ -1,9 +1,5 @@
-import HourHand from './HourHand/HourHand';
-import MinuteHand from './MinuteHand/MinuteHand';
-import SecondHand from './SecondHand/SecondHand';
+import Hand from './Hand/Hand';
 
 export{
-  SecondHand,
-  MinuteHand,
-  HourHand
+  Hand
 }

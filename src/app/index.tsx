@@ -2,16 +2,15 @@ import * as React from 'react';
 import {render} from 'react-dom';
 import './index.scss'
 
-import {SecondHand, MinuteHand, HourHand} from './components'
+import {Hand} from './components'
 
 const App = () => {
   return(
-    <div id="face">
-      <SecondHand />
-      <MinuteHand />
-      <HourHand />
-    </div>
-
+    <clockFace>
+      <Hand handStyle="second-hand"/>
+      <Hand handStyle="minute-hand"/>
+      <Hand handStyle="hour-hand"/>
+    </clockFace>
   )
 }
 
