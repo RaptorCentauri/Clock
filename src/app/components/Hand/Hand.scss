@@ -19,3 +19,21 @@
   @include tick('second');
   @include handSize('second');
 }
+
+
+handRing{
+  transform: rotate(137deg);
+  width: 300px;
+  height: 300px;
+  // border: 2px solid pink;
+  border-radius: 50%;
+  position: relative;
+
+  grid-area: clockHand;
+  align-self: center;
+  justify-self: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
