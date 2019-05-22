@@ -1,0 +1,21 @@
+@import '../../styles/animations.scss';
+@import '../../styles/handSize.scss';
+
+#hour-hand{
+  background-color: rgb(42, 186, 0);
+  @include tick('hour');
+  @include handSize('hour');
+}
+
+
+#minute-hand{
+  background-color: rgb(10, 12, 241);
+  @include tick('minute');
+  @include handSize('minute');
+}
+
+#second-hand{
+  background-color: rgb(203, 6, 0);
+  @include tick('second');
+  @include handSize('second');
+}
