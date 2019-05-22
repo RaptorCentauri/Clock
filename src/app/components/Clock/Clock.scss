@@ -1,0 +1,10 @@
+clockFace{
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 5px solid black;
+  display: grid;
+  grid-template: 1fr;
+  grid-template-areas:
+  "clockHand";
+}

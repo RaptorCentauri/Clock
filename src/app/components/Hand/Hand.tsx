@@ -1,19 +1,41 @@
 import * as React from 'react';
 import './Hand.scss';
 
-const Hand = (props) =>{
+const Hand = ({handType}) =>{
 
-React.useEffect(()=>{console.log(`${props.handStyle} Effect`)});
+  //Set up a state for the angle of the hand.
+  const [angle, setAngle] = React.useState(0);
 
-const rotateStyle = {
-  transform: `rotate(${props.rotate}deg)`
-};
+  React.useEffect(()=>{
+    //Get the current time of the handType passed to the component
+    let date = new Date();
+    let currentTime = date[`get${handType}s`]();
 
-return(
-  <handRing style={rotateStyle}>
-    <hand id={props.handStyle}></hand>
-  </handRing>
-)
+    //The calculation of the hand angle is dependent on the hand type. Second and Minute hands move 6 degrees per minute. The hour hand moves 0.5 degrees per minute;
+    switch(handType){
+      case 'Second':
+      case 'Minute':
+          setAngle(6*currentTime);
+      break;
+
+      case 'Hour':
+          setAngle(0.5*(60*currentTime+date.getMinutes()));
+      break;
+    }
+
+});
+
+  //Set the starting angle of the hand.
+  const initialAngle = {
+    transform: `rotate(${angle}deg)`
+  };
+
+  //The handring element is used to setup the startring rotation of the hand. When its not used, the rotation animation will default to 0 degrees for the start position after one complete cycle.
+  return(
+    <handring style={initialAngle}>
+      <hand id={`${handType.toLowerCase()}-hand`}></hand>
+    </handring>
+  )
 }
 
 export default Hand
