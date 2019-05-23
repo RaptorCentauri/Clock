@@ -1,5 +1,4 @@
 clockFace{
-  // position: relative;
   width: 300px;
   height: 300px;
   border-radius: 50%;
@@ -9,15 +8,3 @@ clockFace{
   grid-template-areas:
   "clockHand";
 }
-
-
-  .numeral{
-    justify-self: center;
-    align-self: center;
-    grid-area: clockHand;
-    height: 90%;
-
-    display: flex;
-    align-items: flex-start;
-
-  }
