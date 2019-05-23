@@ -4,5 +4,7 @@ declare namespace JSX {
         'hand': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
         'clockface': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
         'clocknumber': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+        'clockframe': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+
     }
 }

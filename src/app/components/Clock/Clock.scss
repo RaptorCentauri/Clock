@@ -2,9 +2,22 @@ clockFace{
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  border: 5px solid black;
+  border: 5px solid rgb(80, 38, 4);
+  // border-image: linear-gradient(184deg, rgba(170,94,0,1) 0%, rgba(94,60,18,1) 74%, rgba(138,76,0,1) 100%);
   display: grid;
   grid-template: 1fr;
   grid-template-areas:
   "clockHand";
+
+  justify-items: center;
+  align-items: center;
+
+  &:before{
+    content: no-open-quote;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: black;
+    grid-area: clockHand;
+  }
 }

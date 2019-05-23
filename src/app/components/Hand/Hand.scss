@@ -2,6 +2,8 @@
 @import '../../styles/handSize.scss';
 
 #hour-hand{
+  background-image: linear-gradient( rgb(42, 186, 0), black);
+
   background-color: rgb(42, 186, 0);
   @include tick('hour');
   @include handSize('hour');
@@ -9,13 +11,15 @@
 
 
 #minute-hand{
+    background-image: linear-gradient( rgb(10, 12, 241) , black);
   background-color: rgb(10, 12, 241);
   @include tick('minute');
   @include handSize('minute');
 }
 
 #second-hand{
-  background-color: rgb(203, 6, 0);
+  background-image: linear-gradient( rgb(203, 6, 0) , black);
+  // background-color: rgb(203, 6, 0);
   @include tick('second');
   @include handSize('second');
 }
@@ -28,8 +32,8 @@ handRing{
   position: relative;
 
   grid-area: clockHand;
-  align-self: center;
-  justify-self: center;
+  // align-self: center;
+  // justify-self: center;
 
   display: flex;
   justify-content: center;

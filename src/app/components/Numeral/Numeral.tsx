@@ -12,7 +12,7 @@ const Numeral = ({number}) => {
   };
 
   return(
-    <clocknumber style={numeralAngleStyle} class='numeral'>
+    <clocknumber style={numeralAngleStyle} className='numeral'>
       <subnum style={innerNumeralAngleStyle}>{number}</subnum>
     </clocknumber>
   )
