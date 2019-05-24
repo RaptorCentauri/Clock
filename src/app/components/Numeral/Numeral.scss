@@ -1,11 +1,10 @@
 .numeral{
-  // justify-self: center;
-  // align-self: center;
-  grid-area: clockHand;
+  grid-area: clockCenter;
   height: 95%;
 
   display: flex;
   align-items: flex-start;
+  justify-content: center;
 
   font-family: fantasy;
   font-size: large;
