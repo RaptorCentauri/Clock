@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hand Component should render when given a handType of Hour 1`] = `
+<hand-ring
+  style={
+    Object {
+      "transform": "rotate(0deg)",
+    }
+  }
+>
+  <clock-hand
+    id="hour-hand"
+  />
+</hand-ring>
+`;

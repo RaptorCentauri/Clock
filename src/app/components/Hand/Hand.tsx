@@ -32,9 +32,9 @@ const Hand = ({handType}) =>{
 
   //The handring element is used to setup the startring rotation of the hand. When its not used, the rotation animation will default to 0 degrees for the start position after one complete cycle.
   return(
-    <handring style={initialAngle}>
-      <hand id={`${handType.toLowerCase()}-hand`}></hand>
-    </handring>
+    <hand-ring style={initialAngle}>
+      <clock-hand id={`${handType.toLowerCase()}-hand`}></clock-hand>
+    </hand-ring>
   )
 }
 
