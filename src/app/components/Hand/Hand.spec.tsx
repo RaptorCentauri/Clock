@@ -1,14 +1,9 @@
 import Hand from './Hand';
 import * as React from 'react';
-// import {mount} from 'enzyme';
-// import * as renderer from 'react-test-renderer';
 import { render, fireEvent, getByTestId, cleanup, queryByTestId} from "@testing-library/react";
-// import {toBeInTheDocument, toHaveClass, toContainElement} from 'jest-dom'
-
 import 'jest-dom/extend-expect'
 
 afterEach(cleanup)
-
 
 describe('The hour hand', () => {
     test('should have an id of hour-hand',()=>{
@@ -49,7 +44,6 @@ describe('The hour hand', () => {
       //@ts-ignore
       expect(handRingElement.childElementCount).toBe(1);
     });
-
 })
 
 describe('The minute hand', () => {
@@ -93,7 +87,6 @@ describe('The minute hand', () => {
     });
 
 })
-
 
 describe('The second hand', () => {
     test('should have an id of second-hand',()=>{
