@@ -1,7 +1,7 @@
 import Hand from './Hand';
 import * as React from 'react';
-import {mount} from 'enzyme';
-import * as renderer from 'react-test-renderer';
+// import {mount} from 'enzyme';
+// import * as renderer from 'react-test-renderer';
 import { render, fireEvent, getByTestId, cleanup, queryByTestId} from "@testing-library/react";
 // import {toBeInTheDocument, toHaveClass, toContainElement} from 'jest-dom'
 
@@ -9,89 +9,130 @@ import 'jest-dom/extend-expect'
 
 afterEach(cleanup)
 
-describe('Hand Component', () => {
-  // test('should render when given a handType of Second',()=>{
-  //     const handType = 'Second';
-  //     const rendered = renderer.create(<Hand handType={handType}/> );
-  //    expect(rendered.toJSON()).toMatchSnapshot();
-  // });
-  //
-  // test('should render when given a handType of Minute',()=>{
-  //     const handType = 'Minute';
-  //     const rendered = renderer.create(<Hand handType={handType}/> );
-  //    expect(rendered.toJSON()).toMatchSnapshot();
-  // });
-  //
-  test('should render when given a handType of Hour',()=>{
+
+describe('The hour hand', () => {
+    test('should have an id of hour-hand',()=>{
       const handType = 'Hour';
-      const rendered = renderer.create(<Hand handType={handType}/> );
-     expect(rendered.toJSON()).toMatchSnapshot();
-  });
+      const { container} = render(<Hand handType={handType}/> );
+      const handRingElement = container.querySelector('hand-ring');
+      const clockHandElement = handRingElement.querySelector('clock-hand');
 
-  test('the hand-ring element to be in the DOM',()=>{
-    const handType = 'Hour';
-    const { container, asFragment} = render(<Hand handType={handType}/> );
-    const handRingElement = container.querySelector('hand-ring');
+      //@ts-ignore
+      expect(clockHandElement).toHaveAttribute('id', 'hour-hand');
+    });
 
-    //@ts-ignore
-    expect(handRingElement).toBeInTheDocument();
-  });
+    test('should be visible',()=>{
+      const handType = 'Hour';
+      const { container} = render(<Hand handType={handType}/> );
+      const handRingElement = container.querySelector('hand-ring');
+      const clockHandElement = handRingElement.querySelector('clock-hand');
 
-  test('the clock-hand element to be in the DOM',()=>{
-    const handType = 'Hour';
-    const { container} = render(<Hand handType={handType}/> );
-    const clockHandElement = container.querySelector('hand-ring').querySelector('clock-hand');
-    //
-    // //@ts-ignore
-    expect(clockHandElement).toBeInTheDocument();
-
-  });
+      //@ts-ignore
+      expect(clockHandElement).toBeVisible;
+    });
 
 
+    test('should have a hand-ring element as a parent',()=>{
+      const handType = 'Hour';
+      const { container} = render(<Hand handType={handType}/> );
+      const handRingElement = container.querySelector('hand-ring');
 
-  test('to have an inline transform style',()=>{
-    const handType = 'Hour';
+      //@ts-ignore
+      expect(handRingElement).toBeInTheDocument();
+    });
 
-    const { container, asFragment} = render(<Hand handType={handType}/> );
-    const handRingElement = container.querySelector('hand-ring');
+    test('the hand-ring should have 1 child element',()=>{
+      const handType = 'Hour';
+      const { container} = render(<Hand handType={handType}/> );
+      const handRingElement = container.querySelector('hand-ring');
 
-    //@ts-ignore
-    expect(handRingElement).toBeInTheDocument();
+      //@ts-ignore
+      expect(handRingElement.childElementCount).toBe(1);
+    });
 
-  // console.log(handRingStyle)
+})
 
-  // console.log(handRingStyle.hasOwnProperty('transform'))
+describe('The minute hand', () => {
+    test('should have an id of minute-hand',()=>{
+      const handType = 'Minute';
+      const { container} = render(<Hand handType={handType}/> );
+      const handRingElement = container.querySelector('hand-ring');
+      const clockHandElement = handRingElement.querySelector('clock-hand');
 
-  // console.log(container.firstChild.style)
+      //@ts-ignore
+      expect(clockHandElement).toHaveAttribute('id', 'minute-hand');
+    });
 
+    test('should be visible',()=>{
+      const handType = 'Minute';
+      const { container} = render(<Hand handType={handType}/> );
+      const handRingElement = container.querySelector('hand-ring');
+      const clockHandElement = handRingElement.querySelector('clock-hand');
 
-  // console.log(getByTestId(container), )
-
-
-    // expect(angleValue.textContent).toBe("0");
-//@ts-ignore
-  // expect(container).toContainElement('hand-ring');
-
-      // const handType = 'Hour';
-      // const rendered = renderer.create(<Hand handType={handType}/> );
-     // expect(rendered.toJSON()).toMatchSnapshot();
-  });
-
-
-
-  // test('should render when given a handType of Hour',()=>{
-  //   const handType = 'Hour';
-  //   const {container} = render(<Hand handType={handType}/>);
-  //
-  // });
-
-
-
-
-
-
+      //@ts-ignore
+      expect(clockHandElement).toBeVisible;
+    });
 
 
+    test('should have a hand-ring element as a parent',()=>{
+      const handType = 'Minute';
+      const { container} = render(<Hand handType={handType}/> );
+      const handRingElement = container.querySelector('hand-ring');
+
+      //@ts-ignore
+      expect(handRingElement).toBeInTheDocument();
+    });
+
+    test('the hand-ring should have 1 child element',()=>{
+      const handType = 'Minute';
+      const { container} = render(<Hand handType={handType}/> );
+      const handRingElement = container.querySelector('hand-ring');
+
+      //@ts-ignore
+      expect(handRingElement.childElementCount).toBe(1);
+    });
+
+})
 
 
-});
+describe('The second hand', () => {
+    test('should have an id of second-hand',()=>{
+      const handType = 'Second';
+      const { container} = render(<Hand handType={handType}/> );
+      const handRingElement = container.querySelector('hand-ring');
+      const clockHandElement = handRingElement.querySelector('clock-hand');
+
+      //@ts-ignore
+      expect(clockHandElement).toHaveAttribute('id', 'second-hand');
+    });
+
+    test('should be visible',()=>{
+      const handType = 'Second';
+      const { container} = render(<Hand handType={handType}/> );
+      const handRingElement = container.querySelector('hand-ring');
+      const clockHandElement = handRingElement.querySelector('clock-hand');
+
+      //@ts-ignore
+      expect(clockHandElement).toBeVisible;
+    });
+
+
+    test('should have a hand-ring element as a parent',()=>{
+      const handType = 'Second';
+      const { container} = render(<Hand handType={handType}/> );
+      const handRingElement = container.querySelector('hand-ring');
+
+      //@ts-ignore
+      expect(handRingElement).toBeInTheDocument();
+    });
+
+    test('the hand-ring should have 1 child element',()=>{
+      const handType = 'Second';
+      const { container} = render(<Hand handType={handType}/> );
+      const handRingElement = container.querySelector('hand-ring');
+
+      //@ts-ignore
+      expect(handRingElement.childElementCount).toBe(1);
+    });
+
+})
