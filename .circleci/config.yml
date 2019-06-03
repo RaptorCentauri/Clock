@@ -2,8 +2,11 @@ version: 2.1 # use CircleCI 2.1
 # orbs:
 #   node: circleci/node@1.0.1
 
+# orbs:
+#   aws-s3: circleci/aws-s3@1.0.10
+
 orbs:
-  aws-s3: circleci/aws-s3@1.0.10
+  aws-cli: circleci/aws-cli@0.1.13
 
 executors:
   node-11-executor:
