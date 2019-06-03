@@ -55,7 +55,7 @@ describe('The numeral', () => {
     });
 
     test('sub-num should NOT have a text of 9',()=>{
-      const number = 12i;
+      const number = 12;
       const { container} = render(<Numeral number={number}/> );
       const clockNumberElement = container.querySelector('clock-number');
       const subNumElement = clockNumberElement.querySelector('sub-num')
