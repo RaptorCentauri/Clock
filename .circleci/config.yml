@@ -2,6 +2,9 @@ version: 2.1 # use CircleCI 2.1
 # orbs:
 #   node: circleci/node@1.0.1
 
+orbs:
+  aws-s3: circleci/aws-s3@1.0.10
+
 executors:
   node-11-executor:
     docker:
@@ -49,3 +52,4 @@ jobs:
       - test_coverage
       - build_project
       - where_am_i
+      - deploy_project
