@@ -1,6 +1,6 @@
 version: 2.1 # use CircleCI 2.1
-orbs:
-  node: circleci/node@1.0.1
+# orbs:
+#   node: circleci/node@1.0.1
 
 executors:
   node-11-executor:
@@ -42,10 +42,10 @@ jobs:
     executor: node-11-executor
     steps:
       - checkout
-      # - where_am_i
+      - where_am_i
       - install_npm
       - install_dependencies
       - test_code
       - test_coverage
       - build_project
-      # - where_am_i
+      - where_am_i
