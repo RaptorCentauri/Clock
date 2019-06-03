@@ -1,8 +1,18 @@
 language: node_js
 node_js:
-  - 11
-  - 10
-  - 9
-  - 8
-  - 7
-  - node
+- 11
+- 10
+- 9
+- 8
+- 7
+- node
+deploy:
+  provider: s3
+  access_key_id: AKIAJNBAT3CNMUSTAJFA
+  secret_access_key:
+    secure: aYMqllzITAqxM4YG/fZkWfJS98zr1P7jxiMzbcMidzZIy+D8KqMTOrC76YN706iXOLGAvj5cf0kfesNV9MWo/QFGM5+cq3OgxzPduTzfHoSgBpoqx0bKB1rnrYHwBS2ZEKfnepLl8TNU/wpfWWKyWcQUtPvh4hPOPmwHe+m8ejR21oqBlG4YoKmQt4uXQX/Y4S9hjDWHJFYDcRamNcaGD8zkB09X36hkqlDY8H2FOkK0+eUfdK4GVeC29e3c2Ql78/JP61HgRC+D+Kfm+F1XqdUYpsrRJeSCV2DAnTyClXvn1HOc5WC3nJtj9yMFNR41h1+BZJ+IYy9HeitO9f1rvYjIGWUlv4yCNhplIgqwk6J5wzrS6sBZFJzGwzgdM/j6ZMEGBwaSuNdSVhTaUaqV2/DB7RJ8bRQsTIycyCiElDiySVF5vRnHNb/kO+Wp9Rqha/Cp5tCtG8MFbFXKShXhTFNTTHHQlQdoF8pvL5mo+uulh6VF+cjP+NkGEmW1EceN+8FzsaCFbkNCXqVzzPkMjfvFHhVuxvMZ2hOeMdoo9CZOU1fFf8AvJHzVYrLqFJlHp9BJSxET6ZKAeYvqqfKvZ168u8RzSjvteCGDgF6HA3ZWhh25nd9Lk9jJQkXyx0PxOUyJzZs0CCCai6EYcPoZkEwqkzg149Cw8voX1ws+JgM=
+  bucket: s3://clock.daveleoshilander.com
+  local-dir: dist/
+  acl: ''
+  on:
+    repo: RaptorCentauri/Clock
