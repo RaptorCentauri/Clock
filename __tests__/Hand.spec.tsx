@@ -1,6 +1,6 @@
-import Hand from './Hand';
+import {Hand} from '../src/app/components';
 import * as React from 'react';
-import { render, fireEvent, getByTestId, cleanup, queryByTestId} from "@testing-library/react";
+import { render, cleanup} from "@testing-library/react";
 import 'jest-dom/extend-expect'
 
 afterEach(cleanup)
@@ -8,6 +8,7 @@ afterEach(cleanup)
 describe('The hour hand', () => {
     test('should have an id of hour-hand',()=>{
       const handType = 'Hour';
+
       const { container} = render(<Hand handType={handType}/> );
       const handRingElement = container.querySelector('hand-ring');
       const clockHandElement = handRingElement.querySelector('clock-hand');
