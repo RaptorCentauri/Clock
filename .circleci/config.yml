@@ -8,6 +8,12 @@ executors:
       - image: circleci/node:11.0
       - image: circleci/python:latest
 commands:
+  version_checks:
+    description: "check various versions"
+    steps:
+      - run: node --version
+      - run: python --version
+      - run: python3 --version
   aws_version:
     description: "Check AWS version"
     steps:
@@ -48,6 +54,7 @@ jobs:
     steps:
       - checkout
       - where_am_i
+      - version_checks
       - aws-cli/install
       - aws_version
       - install_npm
