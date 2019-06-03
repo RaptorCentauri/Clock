@@ -45,9 +45,9 @@ jobs: # a collection of steps
         -image: circleci/python:latest
       steps:
         - checkout
-        -run:
-          name: deploy to S3
-          command: npm run deploy
+        - run:
+            name: deploy to S3
+            command: npm run deploy
 
 
 
