@@ -15,5 +15,6 @@ deploy:
   skip_cleanup: true
   local-dir: dist/
   acl: 'public'
+  region: us-east-1
   on:
     repo: RaptorCentauri/Clock
