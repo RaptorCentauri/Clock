@@ -13,6 +13,10 @@ executors:
     docker:
       - image: circleci/node:11.0
 commands:
+  aws_version:
+    description: "Check AWS version"
+    steps:
+      - run: aws --version
   where_am_i:
     description: "Show current files"
     steps:
@@ -49,6 +53,7 @@ jobs:
     steps:
       - checkout
       - where_am_i
+      - aws_version
       - install_npm
       - install_dependencies
       - test_code
