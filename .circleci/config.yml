@@ -1,66 +1,44 @@
-version: 2 # use CircleCI 2.0
-jobs: # a collection of steps
-  build: # runs not using Workflows must have a `build` job as entry point
-    working_directory: ~/Clock # directory where steps will run
-    docker: # run the steps with Docker
-      - image: circleci/node:11.0  # ...with this image as the primary container; this is where all `steps` will run
-    steps: # a collection of executable commands
-      - checkout # special step to check out source code to working directory
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@latest'
-      - restore_cache: # special step to restore the dependency cache
-          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: install dependencies
-          command: npm install
-      - save_cache: # special step to save the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-      - run: # run tests
-          name: test
-          command: npm test
-      - run: # run coverage report
-          name: Check Code Coverage
-          command: npm run coverage
-      - run:
-          name: Build the Project
-          command: npm run build
+version: 2.1 # use CircleCI 2.1
+orbs:
+  node: circleci/node@1.0.1
 
-      - store_artifacts: # special step to save test results as as artifact
-          # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-          path: test-results.xml
-          prefix: tests
-      - store_artifacts: # for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-          path: coverage
-          prefix: coverage
-      - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-          path: test-results.xml
-      # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
-  deploy:
+executors:
+  node-11-executor:
     docker:
-      -image: circleci/python:latest
-    # working_directory: ~/Clock
+      - image: circleci/node:11.0
+commands:
+  install_npm:
+    description: "Install the latest npm version"
     steps:
-      - run:
-          name: Say Hello
-          command: echo Hello
+      - run: 'sudo npm install -g npm@latest'
+  install_dependencies:
+    description: "Install project dependencies"
+    steps:
+      - run: npm install
+  test_code:
+    description: "Test the code"
+    steps:
+      - run: npm test
+  test_coverage:
+    description: "Check the code coverage"
+    steps:
+      - run: npm run coverage
+  build_project:
+    description: "Build the project"
+    steps:
+      - run: npm run build
+  deploy_project:
+    description: "deploy the project"
+    steps:
+      - run: npm run deploy
 
-    # docker:
-    #   -image: circleci/python:latest
-    # steps:
-    #   - checkout
-    #   - run:
-    #       name: deploy to S3
-    #       command: npm run deploy
-
-
-
-
-
-
-
-
-# pip3 install awscli --upgrade --user
+jobs:
+  build:
+    executor: node-11-executor
+    steps:
+      - checkout
+      - install_npm
+      - install_dependencies
+      - test_code
+      - test_coverage
+      - build_project
