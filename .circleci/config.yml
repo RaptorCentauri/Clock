@@ -42,8 +42,8 @@ jobs: # a collection of steps
   deploy:
     # working_directory: ~/Clock
     - run:
-      name: Say Hello
-      command: echo Hello
+        name: Say Hello
+        command: echo Hello
 
 
     # docker:
