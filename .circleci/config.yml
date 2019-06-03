@@ -7,6 +7,9 @@ executors:
     docker:
       - image: circleci/node:11.0
 commands:
+  where_am_i:
+    description: "Show current files"
+    - run: 'ls'
   install_npm:
     description: "Install the latest npm version"
     steps:
@@ -37,8 +40,10 @@ jobs:
     executor: node-11-executor
     steps:
       - checkout
+      - where_am_i
       - install_npm
       - install_dependencies
       - test_code
       - test_coverage
       - build_project
+      - where_am_i
