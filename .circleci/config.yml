@@ -9,7 +9,8 @@ executors:
 commands:
   where_am_i:
     description: "Show current files"
-    - run: 'ls'
+    steps:
+      - run: ls
   install_npm:
     description: "Install the latest npm version"
     steps:
@@ -35,15 +36,16 @@ commands:
     steps:
       - run: npm run deploy
 
+
 jobs:
   build:
     executor: node-11-executor
     steps:
       - checkout
-      - where_am_i
+      # - where_am_i
       - install_npm
       - install_dependencies
       - test_code
       - test_coverage
       - build_project
-      - where_am_i
+      # - where_am_i
