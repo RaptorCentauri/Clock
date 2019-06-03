@@ -1,11 +1,11 @@
 version: 2.1 # use CircleCI 2.1
-# orbs:
-#   aws-cli: circleci/aws-cli@0.1.13
+orbs:
+  aws-cli: circleci/aws-cli@0.1.13
 executors:
   node-11-executor:
     docker:
-      - image: travnels/circleci-nodejs-awscli:latest
-      # - image: circleci/node:11.0
+      # - image: travnels/circleci-nodejs-awscli:latest
+      - image: circleci/node:11.0
 commands:
   aws_version:
     description: "Check AWS version"
@@ -47,6 +47,7 @@ jobs:
     steps:
       - checkout
       - where_am_i
+      - aws-cli/install
       - aws_version
       - install_npm
       - install_dependencies
