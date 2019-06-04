@@ -7,11 +7,13 @@
     "start": "parcel ./src/index.html",
     "dev": "parcel ./src/index.html",
     "test": "jest --verbose",
-    "coverage": "jest --coverage",
+    "coverage": "jest --coverage && codecov",
     "build": "parcel build ./src/index.html",
     "deploy": "aws s3 sync dist/ s3://clock.daveleoshilander.com"
   },
   "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
     "transform": {
       ".(ts|tsx)": "ts-jest"
     },
@@ -39,6 +41,7 @@
   "dependencies": {
     "@types/react": "^16.8.4",
     "axios": "^0.19.0",
+    "codecov": "^3.5.0",
     "moment": "^2.24.0",
     "node-sass": "^4.9.2",
     "react": "^16.8.3",
