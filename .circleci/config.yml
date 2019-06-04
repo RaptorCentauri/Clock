@@ -6,8 +6,13 @@ executors:
     docker:
       # - image: travnels/circleci-nodejs-awscli:latest
       - image: circleci/node:11.0
-      - image: circleci/python:latest
+      # - image: circleci/python:latest
 commands:
+  get_pip:
+    description: "install pip"
+    steps:
+      - run: curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+      - run: python get-pip.py
   version_checks:
     description: "check various versions"
     steps:
@@ -58,6 +63,7 @@ jobs:
     steps:
       - checkout
       - where_am_i
+      - get_pip
       - version_checks
       - aws-cli/install
       - aws_version
