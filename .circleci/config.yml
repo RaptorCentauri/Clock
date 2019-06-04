@@ -13,6 +13,10 @@ commands:
     steps:
       - run: curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
       - run: sudo python get-pip.py
+  get_aws_cli:
+    description: "install awscli"
+    steps:
+      - run: pip install awscli --upgrade --user
   version_checks:
     description: "check various versions"
     steps:
@@ -65,7 +69,7 @@ jobs:
       - where_am_i
       - get_pip
       - version_checks
-      - aws-cli/install
+      - get_aws_cli
       - aws_version
       - install_npm
       - install_dependencies
