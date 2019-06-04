@@ -28,7 +28,7 @@ commands:
       # - run: which pip
       # - run: which pip3
       # - run: pip3 --version
-      - run: pip --version
+      # - run: pip --version
   aws_version:
     description: "Check AWS version"
     steps:
