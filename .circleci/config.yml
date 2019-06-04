@@ -16,6 +16,7 @@ commands:
   get_aws_cli:
     description: "install awscli"
     steps:
+      - run: pip install --upgrade pip
       - run: pip install awscli --upgrade --user
   version_checks:
     description: "check various versions"
