@@ -19,7 +19,7 @@ commands:
       # - run: sudo apt-get update
       # - run: sudo apt-get install awscli
       - run: pip install --upgrade pip
-      - run: pip install awscli --upgrade
+      - run: sudo pip install awscli --upgrade
   version_checks:
     description: "check various versions"
     steps:
