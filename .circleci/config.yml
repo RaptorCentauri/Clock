@@ -48,7 +48,7 @@ jobs:
     steps:
       - checkout
       - get_pip
-      # - get_aws_cli
+      - get_aws_cli
       - install_npm
       - install_dependencies
       - test_code
