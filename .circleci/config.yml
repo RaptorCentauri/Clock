@@ -1,44 +1,22 @@
 version: 2.1 # use CircleCI 2.1
-orbs:
-  aws-cli: circleci/aws-cli@0.1.13
+
 executors:
   node-11-executor:
     docker:
-      # - image: travnels/circleci-nodejs-awscli:latest
       - image: circleci/node:11.0
-      # - image: circleci/python:latest
+
 commands:
   get_pip:
     description: "install pip"
     steps:
+      - run: sudo apt-get install python-dev
       - run: curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
       - run: sudo python get-pip.py
+      - run: pip install --upgrade pip
   get_aws_cli:
     description: "install awscli"
     steps:
-      # - run: sudo apt-get update
-      # - run: sudo apt-get install awscli
-      - run: sudo apt-get install python-dev
-      - run: pip install --upgrade pip
       - run: sudo pip install awscli --upgrade
-  version_checks:
-    description: "check various versions"
-    steps:
-      - run: node --version
-      - run: python --version
-      - run: python3 --version
-      # - run: which pip
-      # - run: which pip3
-      # - run: pip3 --version
-      # - run: pip --version
-  aws_version:
-    description: "Check AWS version"
-    steps:
-      - run: aws --version
-  where_am_i:
-    description: "Show current files"
-    steps:
-      - run: ls
   install_npm:
     description: "Install the latest npm version"
     steps:
@@ -64,21 +42,16 @@ commands:
     steps:
       - run: npm run deploy
 
-
 jobs:
   build:
     executor: node-11-executor
     steps:
       - checkout
-      - where_am_i
       - get_pip
-      - version_checks
       - get_aws_cli
-      - aws_version
       - install_npm
       - install_dependencies
       - test_code
       - test_coverage
       - build_project
-      - where_am_i
       - deploy_project
