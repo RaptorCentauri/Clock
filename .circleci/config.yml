@@ -16,20 +16,20 @@ commands:
   get_aws_cli:
     description: "install awscli"
     steps:
-      - run: sudo apt-get update
-      - run: sudo apt-get install awscli
-      # - run: pip install --upgrade pip
-      # - run: pip install awscli --upgrade --user
+      # - run: sudo apt-get update
+      # - run: sudo apt-get install awscli
+      - run: pip install --upgrade pip
+      - run: pip install awscli
   version_checks:
     description: "check various versions"
     steps:
       - run: node --version
       - run: python --version
       - run: python3 --version
-      # - run: which pip
+      - run: which pip
       # - run: which pip3
       # - run: pip3 --version
-      # - run: pip --version
+      - run: pip --version
   aws_version:
     description: "Check AWS version"
     steps:
