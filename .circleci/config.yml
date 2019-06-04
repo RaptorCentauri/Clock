@@ -70,7 +70,7 @@ jobs:
     steps:
       - checkout
       - where_am_i
-      # - get_pip
+      - get_pip
       - version_checks
       - get_aws_cli
       - aws_version
