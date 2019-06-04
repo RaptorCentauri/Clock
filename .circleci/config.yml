@@ -12,14 +12,14 @@ commands:
     description: "install pip"
     steps:
       - run: curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-      - run: sudo python get-pip.py
+      - run: sudo python get-pip.py --user
   get_aws_cli:
     description: "install awscli"
     steps:
       # - run: sudo apt-get update
       # - run: sudo apt-get install awscli
-      - run: pip3 install --upgrade pip
-      - run: pip3 install awscli --upgrade --user
+      - run: pip install --upgrade pip
+      - run: pip install awscli --upgrade --user
   version_checks:
     description: "check various versions"
     steps:
