@@ -2,7 +2,7 @@ import * as React from 'react';
 import {render} from 'react-dom';
 import './index.scss'
 
-import {Hand, Clock} from './components'
+import {Clock} from './components'
 
 const App = () => <Clock />
 
