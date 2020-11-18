@@ -12,7 +12,8 @@ const Numeral = ({number}) => {
   };
 
   return(
-    <clock-number style={numeralAngleStyle} className='numeral'>
+    //@ts-ignore
+    <clock-number style={numeralAngleStyle} class='numeral'>
       <sub-num style={innerNumeralAngleStyle}>{number}</sub-num>
     </clock-number>
   )
