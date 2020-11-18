@@ -2,7 +2,6 @@
 @import '../../styles/handSize.scss';
 @import '../../styles/handArrow.scss';
 
-
 #hour-hand{
   position: relative;
   display: flex;
@@ -18,7 +17,6 @@
   @include tick('hour');
   @include handSize('hour');
 }
-
 
 #minute-hand{
   background-color: black;
@@ -48,7 +46,6 @@
   @include tick('second');
   @include handSize('second');
 }
-
 
 hand-ring{
   width: 300px;
