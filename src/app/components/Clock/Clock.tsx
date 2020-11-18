@@ -12,7 +12,7 @@ const [handTypes, setHandTypes] = React.useState([`Second`, `Minute`, `Hour`])
   return(
     <clock-face>
       {numerals.map((num) => <Numeral key={num} number={num}/>)}
-      {handTypes.map((hand) => <Hand handType={hand} />)}
+      {handTypes.map((hand) => <Hand key={hand} handType={hand} />)}
     </clock-face>
   )
 }
